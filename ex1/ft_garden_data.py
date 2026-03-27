@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-class   Plant:
+class Plant:
     def __init__(self, name, height, age):
         self.name = name
         self.height = height
@@ -18,4 +18,3 @@ if __name__ == "__main__":
     rose.show()
     sunflower.show()
     cactus.show()
-
