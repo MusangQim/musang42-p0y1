@@ -31,6 +31,7 @@ class Plant:
     def get_age(self) -> int:
         return self._age
 
+
 if __name__ == "__main__":
     print("=== Garden Security System ===")
     rose = Plant("Rose", 15.0, 10)
