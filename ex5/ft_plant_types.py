@@ -19,6 +19,7 @@ class Flower(Plant):
         self._bloomed = True
 
     def show(self) -> None:
+        print("=== Flower")
         super().show()
         print(f"Color: {self._color}")
         if self._bloomed == False:
@@ -33,10 +34,11 @@ class Tree(Plant):
         self._trunk_diameter = trunk_diameter
 
     def produce_shade(self) -> None:
-       
-    def show(self) -> None:
+        print("=== Tree")
         super().show()
         print(f"Trunk diameter: {self._trunk_diameter}")
+       
+    def show(self) -> None:
         print(f"Tree {self.name} now produces a shade of {self._height}cm long and {self.trunk_diameter}cm wide.")
 
 
@@ -47,6 +49,7 @@ class Vegetable(Plant):
         self.nutritional_value: value
 
     def show(self) -> None:
+        print("=== Vegetable")
         super().show()
         print(f"Harvest season: {self.harvest_season}")
         print(f"Nutritional value: {self.nutritional_value}")
