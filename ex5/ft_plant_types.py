@@ -15,39 +15,43 @@ class Plant:
     def show(self) -> None:
         print(f"{self.name}: {self._height}cm, {self._age} days old")
 
+
 class Flower(Plant):
     def __init__(self, name: str, height: float, age: int, color: str) -> None:
         super().__init__(name, height, age)
         self._color = color
         self._bloomed = False
-    
+
     def bloom(self) -> None:
         self._bloomed = True
 
     def show(self) -> None:
         super().show()
         print(f" Color: {self._color}")
-        if self._bloomed == False:
+        if not self._bloomed:
             print(f" {self.name} has not bloomed yet")
         else:
             print(f" {self.name} is blooming beautifully!")
 
 
 class Tree(Plant):
-    def __init__(self, name: str, height: float, age: int, trunk_diameter: int) -> None:
+    def __init__(self, name: str, height: float, age: int,
+                 trunk_diameter: int) -> None:
         super().__init__(name, height, age)
         self._trunk_diameter = trunk_diameter
 
     def produce_shade(self) -> None:
-        print(f"Tree {self.name} now produces a shade of {self._height}cm long and {self._trunk_diameter}cm wide.")
-        
+        print(f"Tree {self.name} now produces a shade of "
+              f"{self._height}cm long and {self._trunk_diameter}cm wide.")
+
     def show(self) -> None:
         super().show()
         print(f" Trunk diameter: {self._trunk_diameter}cm")
 
 
 class Vegetable(Plant):
-    def __init__(self, name: str, height: float, age: int, harvest_season: str, nutritional_value: int) -> None:
+    def __init__(self, name: str, height: float, age: int,
+                 harvest_season: str, nutritional_value: int) -> None:
         super().__init__(name, height, age)
         self._harvest_season = harvest_season
         self._nutritional_value = nutritional_value
@@ -74,13 +78,11 @@ if __name__ == "__main__":
     rose.show()
     rose.bloom()
     rose.show()
-    
     print()
     print("=== Tree")
     oak = Tree("Oak", 200.0, 365, 5.0)
     oak.show()
     oak.produce_shade()
-
     print()
     print("=== Vegetable")
     tomato = Vegetable("Tomato", 5.0, 10, "April", 0)
