@@ -1,13 +1,34 @@
 #!/usr/bin/env python3
 
 class Plant:
+    class Stats:
+        def __init__(self) -> None:
+            self._grow_count = 0
+            self._age_count = 0
+            self._show_count = 0
+
+        def display(self) -> None:
+            print(f"Stats: {self._grow_count} grow,"
+                  f" {self._age_count} age,"
+                  f" {self._show_count} show")
+
     def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
         self._height = height
         self._age = age
+        self._stats = Plant.Stats()
+
+    def grow(self) -> None:
+        self._height = round(self._height + 1.5, 2)
+        self._stats._grow_count += 1
+
+    def age(self) -> None:
+        self._age += 1
+        self._stats.age_count += 1
 
     def show(self) -> None:
         print(f"{self.name}: {self._height}cm, {self._age} days old")
+        self._stats._show_count += 1
 
     @staticmethod
     def ageofplant(age: int) -> bool:
@@ -16,6 +37,7 @@ class Plant:
     @classmethod
     def info_anonymous(cls) -> 'Plant':
         return cls("Unknown plant", 0.0, 0)
+
 
 class Flower(Plant):
     def __init__(self, name: str, height: float, age: int, color: str) -> None:
@@ -29,14 +51,15 @@ class Flower(Plant):
     def show(self) -> None:
         super().show()
         print(f" Color: {self._color}")
-        if not self.bloomed:
+        if not self._bloomed:
             print(f" {self.name} has not bloomed yet")
         else:
             print(f" {self.name} is blooming beautifully!")
 
 class Seed(Flower):
-    def __init__(self, name: str, height: float, age: int, color: str, seeds: int) -> None:
-        super().__init__(name, height, age)
+    def __init__(self, name: str, height: float, 
+                 age: int, color: str, seeds: int) -> None:
+        super().__init__(name, height, age, color)
         self._seeds = seeds
 
     def show(self) -> None:
@@ -59,6 +82,8 @@ if __name__ == "__main__":
     
     print()
     print("=== Seed")
+    sunflower = Seed("Sunflower", 80.0, 45, "yellow", 0)
+    sunflower.show()
     
     print()
     print("=== Anonymous")
