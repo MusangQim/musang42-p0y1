@@ -82,6 +82,7 @@ class Tree(Plant):
         super().show()
         print(f" Trunk diameter: {self._trunk_diameter}cm")
 
+
 class Vegetable(Plant):
     def __init__(self, name: str, height: float, age: int,
                  harvest_season: str, nutritional_value: int) -> None:
@@ -124,13 +125,27 @@ if __name__ == "__main__":
     
     print()
     print("=== Flower")
-    
+    rose = Flower("Rose", 15.0, 10, "red")
+    rose.show()
+    rose.grow()
+    rose.bloom()
+    rose.show()
+
+
     print()
     print("=== Tree")
-    
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    oak.produce_shade()
+
     print()
     print("=== Seed")
     sunflower = Seed("Sunflower", 80.0, 45, "yellow", 0)
+    sunflower.show()
+    sunflower.grow()
+    sunflower.age()
+    sunflower.bloom()
+    sunflower._seeds = 42
     sunflower.show()
     
     print()
