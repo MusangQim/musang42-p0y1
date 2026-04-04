@@ -102,8 +102,9 @@ class Vegetable(Plant):
         print(f" Harvest season: {self._harvest_season}")
         print(f" Nutritional value: {int(self._nutritional_value)}")
 
+
 class Seed(Flower):
-    def __init__(self, name: str, height: float, 
+    def __init__(self, name: str, height: float,
                  age: int, color: str, seeds: int) -> None:
         super().__init__(name, height, age, color)
         self._seeds = seeds
@@ -124,6 +125,7 @@ class Seed(Flower):
 def display_stats(plant) -> None:
     plant._stats.display()
 
+
 if __name__ == "__main__":
     print("=== Garden statistics ===")
     print(" === Check year-old")
@@ -131,7 +133,7 @@ if __name__ == "__main__":
           f"-> {Plant.ageofplant(30)}")
     print(f"Is 400 days more than a year? "
           f"-> {Plant.ageofplant(400)}")
-    
+    # -----Rose(Flower)------------------
     print()
     print("=== Flower")
     rose = Flower("Rose", 15.0, 10, "red")
@@ -141,8 +143,7 @@ if __name__ == "__main__":
     rose.bloom()
     rose.show()
     display_stats(rose)
-
-
+    # -----Oak(Tree)---------------------
     print()
     print("=== Tree")
     oak = Tree("Oak", 200.0, 365, 5.0)
@@ -150,7 +151,7 @@ if __name__ == "__main__":
     display_stats(oak)
     oak.produce_shade()
     display_stats(oak)
-
+    # ------Sunflower(Seed)---------------
     print()
     print("=== Seed")
     sunflower = Seed("Sunflower", 80.0, 45, "yellow", 0)
@@ -161,7 +162,7 @@ if __name__ == "__main__":
     sunflower._seeds = 42
     sunflower.show()
     display_stats(sunflower)
-    
+    # -----Anonymous---------------------
     print()
     print("=== Anonymous")
     unknown = Plant.info_anonymous()
