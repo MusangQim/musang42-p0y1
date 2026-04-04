@@ -19,7 +19,7 @@ class Plant:
         self._stats = Plant.Stats()
 
     def grow(self) -> None:
-        self._height = round(self._height + 1.5, 2)
+        self._height = round(self._height + 8.0, 2)
         self._stats._grow_count += 1
 
     def age(self) -> None:
@@ -91,7 +91,7 @@ class Vegetable(Plant):
         self._nutritional_value = nutritional_value
 
     def grow(self) -> None:
-        self._height = round(self._height + 2.1, 2)
+        self._height = round(self._height + 0.8, 2)
         self._stats._grow_count += 1
         self._nutritional_value += 0.5
 
@@ -110,10 +110,21 @@ class Seed(Flower):
         super().__init__(name, height, age, color)
         self._seeds = seeds
 
+    def grow(self) -> None:
+        self._height = round(self._height + 30.0, 2)
+        self._stats._grow_count += 1
+
+    def age(self) -> None:
+        self._age += 20
+        self._stats._age_count += 1
+
     def show(self) -> None:
         super().show()
         print(f" Seeds: {self._seeds}")
 
+
+def display_stats(plant) -> None:
+    plant._stats.display()
 
 if __name__ == "__main__":
     print("=== Garden statistics ===")
@@ -127,16 +138,20 @@ if __name__ == "__main__":
     print("=== Flower")
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
+    display_stats(rose)
     rose.grow()
     rose.bloom()
     rose.show()
+    display_stats(rose)
 
 
     print()
     print("=== Tree")
     oak = Tree("Oak", 200.0, 365, 5.0)
     oak.show()
+    display_stats(oak)
     oak.produce_shade()
+    display_stats(oak)
 
     print()
     print("=== Seed")
@@ -147,8 +162,10 @@ if __name__ == "__main__":
     sunflower.bloom()
     sunflower._seeds = 42
     sunflower.show()
+    display_stats(sunflower)
     
     print()
     print("=== Anonymous")
     unknown = Plant.info_anonymous()
     unknown.show()
+    display_stats(unknown)
