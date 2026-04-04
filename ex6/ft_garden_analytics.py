@@ -92,12 +92,10 @@ class Vegetable(Plant):
 
     def grow(self) -> None:
         self._height = round(self._height + 0.8, 2)
-        self._stats._grow_count += 1
-        self._nutritional_value += 0.5
 
     def age(self) -> None:
         super().age()
-        self._stats._grow_count += 1 
+        self._stats._age_count += 1
 
     def show(self) -> None:
         super().show()
