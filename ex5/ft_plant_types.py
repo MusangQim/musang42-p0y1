@@ -51,7 +51,7 @@ class Tree(Plant):
 
 class Vegetable(Plant):
     def __init__(self, name: str, height: float, age: int,
-                 harvest_season: str, nutritional_value: int) -> None:
+                 harvest_season: str, nutritional_value: float) -> None:
         super().__init__(name, height, age)
         self._harvest_season = harvest_season
         self._nutritional_value = nutritional_value
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     rose.show()
     print()
     print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak = Tree("Oak", 200.0, 365, 5)
     oak.show()
     oak.produce_shade()
     print()
