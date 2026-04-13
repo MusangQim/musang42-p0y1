@@ -6,6 +6,7 @@ class Plant:
             self._grow_count = 0
             self._age_count = 0
             self._show_count = 0
+            self._shade_count = 0
 
         def display(self) -> None:
             print(f"Stats: {self._grow_count} grow,"
@@ -146,7 +147,7 @@ if __name__ == "__main__":
     # -----Oak(Tree)---------------------
     print()
     print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak = Tree("Oak", 200.0, 365, 5)
     oak.show()
     display_stats(oak)
     oak.produce_shade()
