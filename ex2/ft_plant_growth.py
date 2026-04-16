@@ -20,10 +20,11 @@ class Plant:
 if __name__ == "__main__":
     print("=== Garden Plant Growth ===")
     rose = Plant("Rose", 25.0, 30)
+    rose.show()
     for x in range(1, 8):
         print(f"=== Day {x} ===")
-        rose.show()
         rose.grow()
         rose.age()
-    growth = round(rose.height - rose.start)
-    print(f"Growth this week: {growth}cm")
+        rose.show()
+    growth = rose.height - rose.start
+    print(f"Growth this week: {growth:.1f}cm")
